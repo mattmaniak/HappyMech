@@ -173,6 +173,7 @@ MonoBehaviour:
   - {fileID: 1063089209}
   - {fileID: 1143809802}
   - {fileID: 712431295}
+  playerPosition: {fileID: 787858455}
 --- !u!1001 &712431293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243,6 +244,11 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6296866275371001271, guid: 8cb8c22047c4c314ab81bd3a6c9d6bff, type: 3}
   m_PrefabInstance: {fileID: 712431293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &787858455 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3746609343358416078, guid: ccd1f8b790786d448b369a37f15ada8a, type: 3}
+  m_PrefabInstance: {fileID: 3746609341740228035}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1063089207
 PrefabInstance:

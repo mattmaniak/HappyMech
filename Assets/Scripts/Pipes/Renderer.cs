@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Pipes
 {
@@ -8,27 +9,38 @@ namespace Pipes
         const float maxHorizontalSeparationOffset = 10.0f;
         const float minVerticalSeparationOffset = -2.0f;
         const float maxVerticalSeparationOffset = 2.0f;
-
         readonly Vector3 graveyardPosition = new Vector3(-100.0f, 0.0f, 0.0f);
 
         [SerializeField]
         GameObject[] sections;
 
-        public int CurrentSectionIndex { get; internal set; } = 0;
+        [SerializeField]
+        Transform playerPosition;
 
-        float horizontalOffset
+        int currentSectionIndex;
+
+        float HorizontalOffset
         {
             get
             {
-                return Random.Range(minHorizontalSeparationOffset, maxHorizontalSeparationOffset);
+                Assert.IsTrue(playerPosition.transform.position.x <= float.MaxValue);
+                return Random.Range(minHorizontalSeparationOffset, maxHorizontalSeparationOffset) + playerPosition.transform.position.x;
             }
         }
 
-        float verticalOffset
+        float VerticalOffset
         {
             get
             {
                 return Random.Range(minVerticalSeparationOffset, maxVerticalSeparationOffset);
+            }
+        }
+
+        int NextSectionIndex
+        {
+            get
+            {
+                return Random.Range(Random.Range(0, currentSectionIndex), Random.Range(currentSectionIndex + 1, sections.Length));
             }
         }
 
@@ -41,18 +53,19 @@ namespace Pipes
             }
         }
 
-        void Start()
-        {
-            sections[CurrentSectionIndex].transform.position = new Vector3(horizontalOffset, verticalOffset, 0.0f);
-        }
-
         [System.Obsolete("Temponary and CPU-heavy solution. Use events in production.")]
         void Update()
         {
-            if (!sections[CurrentSectionIndex].GetComponentInChildren<SpriteRenderer>().isVisible)
+            if (!sections[currentSectionIndex].GetComponentInChildren<SpriteRenderer>().isVisible)
             {
-
+                MoveCurrentSection();
             }
+        }
+
+        void MoveCurrentSection()
+        {
+            currentSectionIndex = NextSectionIndex;
+            sections[currentSectionIndex].transform.position = new Vector3(HorizontalOffset, VerticalOffset, 0.0f);
         }
     }
 }
