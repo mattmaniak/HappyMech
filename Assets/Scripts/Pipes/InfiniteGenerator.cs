@@ -3,7 +3,7 @@ using UnityEngine.Assertions;
 
 namespace Pipes
 {
-    public class Renderer : MonoBehaviour
+    public class InfiniteGenerator : MonoBehaviour
     {
         const float minHorizontalSeparationOffset = 5.0f;
         const float maxHorizontalSeparationOffset = 10.0f;
