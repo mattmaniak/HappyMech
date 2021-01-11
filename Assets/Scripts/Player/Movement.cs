@@ -9,7 +9,7 @@ namespace Player
 
         void FixedUpdate()
         {
-            transform.Translate(horizontalSpeed * Vector3.forward * Time.fixedDeltaTime);
+            transform.Translate(horizontalSpeed * Vector3.right * Time.fixedDeltaTime);
         }
     }
 }
