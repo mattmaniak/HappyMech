@@ -63,7 +63,7 @@ namespace Pipes
         }
 
         [System.Obsolete("Temponary and CPU-heavy solution. Use events in production.")]
-        void Update()
+        void FixedUpdate()
         {
             if (!sections[currentSectionIndex].GetComponentInChildren<SpriteRenderer>().isVisible)
             {
