@@ -6,16 +6,16 @@ namespace Pipes
     public class InfiniteGenerator : MonoBehaviour
     {
         const float minHorizontalSeparationOffset = 5.0f;
-        const float maxHorizontalSeparationOffset = 10.0f;
-        const float minVerticalSeparationOffset = -2.0f;
-        const float maxVerticalSeparationOffset = 2.0f;
+        const float maxHorizontalSeparationOffset = 10f;
+        const float minVerticalOffset = -3.0f;
+        const float maxVerticalOffset = 3.0f;
         readonly Vector3 graveyardPosition = new Vector3(-100.0f, 0.0f, 0.0f);
 
         [SerializeField]
         GameObject[] sections;
 
         [SerializeField]
-        Transform playerPosition;
+        Transform player;
 
         int currentSectionIndex;
 
@@ -23,8 +23,8 @@ namespace Pipes
         {
             get
             {
-                Assert.IsTrue(playerPosition.transform.position.x <= float.MaxValue);
-                return Random.Range(minHorizontalSeparationOffset, maxHorizontalSeparationOffset) + playerPosition.transform.position.x;
+                Assert.IsTrue(player.transform.position.x <= float.MaxValue);
+                return Random.Range(minHorizontalSeparationOffset, maxHorizontalSeparationOffset) + player.transform.position.x;
             }
         }
 
@@ -32,7 +32,7 @@ namespace Pipes
         {
             get
             {
-                return Random.Range(minVerticalSeparationOffset, maxVerticalSeparationOffset);
+                return Random.Range(minVerticalOffset, maxVerticalOffset);
             }
         }
 
@@ -46,11 +46,8 @@ namespace Pipes
 
         void Awake()
         {
-            foreach (var section in sections)
-            {
-                section.transform.position = graveyardPosition;
-                section.SetActive(true);
-            }
+            SentAllToGraveyard();
+            MoveCurrentSection();
         }
 
         [System.Obsolete("Temponary and CPU-heavy solution. Use events in production.")]
@@ -62,10 +59,23 @@ namespace Pipes
             }
         }
 
-        void MoveCurrentSection()
+        public void MoveCurrentSection()
         {
+            SentAllToGraveyard();
             currentSectionIndex = NextSectionIndex;
             sections[currentSectionIndex].transform.position = new Vector3(HorizontalOffset, VerticalOffset, 0.0f);
+        }
+
+        void SentAllToGraveyard()
+        {
+            foreach (var section in sections)
+            {
+                if (!section.activeInHierarchy)
+                {
+                    section.SetActive(true);
+                }
+                section.transform.position = graveyardPosition;
+            }
         }
     }
 }
