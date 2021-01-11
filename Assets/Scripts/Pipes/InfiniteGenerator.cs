@@ -5,11 +5,23 @@ namespace Pipes
 {
     public class InfiniteGenerator : MonoBehaviour
     {
-        const float minHorizontalSeparationOffset = 5.0f;
-        const float maxHorizontalSeparationOffset = 10f;
-        const float minVerticalOffset = -3.0f;
-        const float maxVerticalOffset = 3.0f;
         readonly Vector3 graveyardPosition = new Vector3(-100.0f, 0.0f, 0.0f);
+
+        [Range(0.0f, 10.0f)]
+        [SerializeField]
+        float minHorizontalSeparation;
+
+        [Range(10.0f, 20.0f)]
+        [SerializeField]
+        float maxHorizontalSeparation;
+
+        [Range(-5.0f, 0.0f)]
+        [SerializeField]
+        float minVerticalOffset;
+
+        [Range(0.0f, 5.0f)]
+        [SerializeField]
+        float maxVerticalOffset;
 
         [SerializeField]
         GameObject[] sections;
@@ -24,7 +36,7 @@ namespace Pipes
             get
             {
                 Assert.IsTrue(player.transform.position.x <= float.MaxValue);
-                return Random.Range(minHorizontalSeparationOffset, maxHorizontalSeparationOffset) + player.transform.position.x;
+                return Random.Range(minHorizontalSeparation, maxHorizontalSeparation) + player.transform.position.x;
             }
         }
 
