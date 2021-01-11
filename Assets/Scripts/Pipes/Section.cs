@@ -5,6 +5,9 @@ namespace Pipes
 {
     public class Section : MonoBehaviour
     {
+        [SerializeField]
+        int index;
+
         void OnBecameInvisible()
         {
             throw new NotImplementedException();
