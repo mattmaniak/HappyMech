@@ -241,6 +241,10 @@ PrefabInstance:
       propertyPath: generator
       value: 
       objectReference: {fileID: 65286614}
+    - target: {fileID: 8675028096738464227, guid: 8cb8c22047c4c314ab81bd3a6c9d6bff, type: 3}
+      propertyPath: generator
+      value: 
+      objectReference: {fileID: 65286614}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cb8c22047c4c314ab81bd3a6c9d6bff, type: 3}
 --- !u!4 &712431294 stripped
@@ -321,6 +325,10 @@ PrefabInstance:
       propertyPath: generator
       value: 
       objectReference: {fileID: 65286614}
+    - target: {fileID: 8675028096738464227, guid: 8cb8c22047c4c314ab81bd3a6c9d6bff, type: 3}
+      propertyPath: generator
+      value: 
+      objectReference: {fileID: 65286614}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cb8c22047c4c314ab81bd3a6c9d6bff, type: 3}
 --- !u!4 &1063089208 stripped
@@ -393,6 +401,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6460638893242650777, guid: 8cb8c22047c4c314ab81bd3a6c9d6bff, type: 3}
+      propertyPath: generator
+      value: 
+      objectReference: {fileID: 65286614}
+    - target: {fileID: 8675028096738464227, guid: 8cb8c22047c4c314ab81bd3a6c9d6bff, type: 3}
       propertyPath: generator
       value: 
       objectReference: {fileID: 65286614}

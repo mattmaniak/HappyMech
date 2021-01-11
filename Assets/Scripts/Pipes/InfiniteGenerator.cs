@@ -62,14 +62,14 @@ namespace Pipes
             MoveCurrentSection();
         }
 
-        [System.Obsolete("Temponary and CPU-heavy solution. Use events in production.")]
-        void FixedUpdate()
-        {
-            if (!sections[currentSectionIndex].GetComponentInChildren<SpriteRenderer>().isVisible)
-            {
-                MoveCurrentSection();
-            }
-        }
+        // [System.Obsolete("Temponary and CPU-heavy solution. Use events in production.")]
+        // void FixedUpdate()
+        // {
+        //     if (!sections[currentSectionIndex].GetComponentInChildren<SpriteRenderer>().isVisible)
+        //     {
+        //         MoveCurrentSection();
+        //     }
+        // }
 
         public void MoveCurrentSection()
         {
@@ -86,7 +86,10 @@ namespace Pipes
                 {
                     section.SetActive(true);
                 }
-                section.transform.position = graveyardPosition;
+                else if (!section.GetComponent<SpriteRenderer>().isVisible)
+                {
+                    section.transform.position = graveyardPosition;
+                }
             }
         }
     }

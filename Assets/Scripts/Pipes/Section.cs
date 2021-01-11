@@ -3,16 +3,15 @@ using UnityEngine;
 
 namespace Pipes
 {
+    [RequireComponent(typeof(SpriteRenderer))]
     public class Section : MonoBehaviour
     {
+        [SerializeField]
+        InfiniteGenerator generator;
+
         void OnBecameInvisible()
         {
-            throw new NotImplementedException();
-        }
-
-        void OnBecameVisible()
-        {
-            throw new NotImplementedException();
+            generator.MoveCurrentSection();
         }
     }
 }
