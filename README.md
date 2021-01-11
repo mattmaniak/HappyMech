@@ -1,4 +1,4 @@
-# Happy Mech
+# <img src='icon.png' width='32'> Happy Mech
 The game that is definitely not inspired by anything.
 
 ## Specs
