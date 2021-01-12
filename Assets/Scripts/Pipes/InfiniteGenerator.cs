@@ -35,7 +35,8 @@ namespace Pipes
         {
             get
             {
-                Assert.IsTrue(player.transform.position.x <= float.MaxValue);
+                float separation = Random.Range(minHorizontalSeparation, maxHorizontalSeparation);
+                Assert.IsTrue(player.transform.position.x <= float.MaxValue - separation);
                 return Random.Range(minHorizontalSeparation, maxHorizontalSeparation) + player.transform.position.x;
             }
         }
@@ -52,7 +53,7 @@ namespace Pipes
         {
             get
             {
-                return Random.Range(Random.Range(0, currentSectionIndex), Random.Range(currentSectionIndex + 1, sections.Length));
+                return Random.Range(Random.Range(0, currentSectionIndex), Random.Range(currentSectionIndex + 1, sections.Length + 1));
             }
         }
 
