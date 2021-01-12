@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 
 public class GameplayController : MonoBehaviour
 {
@@ -18,6 +18,6 @@ public class GameplayController : MonoBehaviour
 
     public void GameOver()
     {
-        throw new NotImplementedException("Game Over!");
+        SceneManager.LoadSceneAsync("GameOverMenu");
     }
 }
