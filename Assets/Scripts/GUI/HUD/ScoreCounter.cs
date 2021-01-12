@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 namespace GUI.HUD
@@ -7,7 +7,6 @@ namespace GUI.HUD
     [RequireComponent(typeof(Text))]
     public class ScoreCounter : MonoBehaviour
     {
-        int scoreNumber = 0;
         Text scoreContents;
 
         public void Awake()
@@ -15,11 +14,15 @@ namespace GUI.HUD
             scoreContents = GetComponent<Text>();
         }
 
-        public void IncrementScoreNumber()
+        public string ScoreContents
         {
-            Assert.IsTrue(scoreNumber < int.MaxValue);
-            scoreNumber++;
-            scoreContents.text = scoreNumber.ToString();
+            set
+            {
+                if (!String.IsNullOrEmpty(value))
+                {
+                    scoreContents.text = value;
+                }
+            }
         }
     }
 }
