@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6296866274529172200}
   - component: {fileID: 6296866274529172202}
   - component: {fileID: 8195011730373318134}
+  - component: {fileID: 8846628157491892316}
   m_Layer: 0
   m_Name: PipeUpper
   m_TagString: Untagged
@@ -133,6 +134,18 @@ PolygonCollider2D:
       - {x: 2.18, y: -0.16}
       - {x: 2.8, y: -0.21}
       - {x: 2.81, y: -0.14}
+--- !u!114 &8846628157491892316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296866274529172201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071e66271aa354843a4ccd767dd5be6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6296866275371001271
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,6 +282,7 @@ GameObject:
   - component: {fileID: 6296866275731318099}
   - component: {fileID: 6296866275731318101}
   - component: {fileID: 6296866275731318098}
+  - component: {fileID: 136772466366428792}
   m_Layer: 0
   m_Name: PipeLower
   m_TagString: Untagged
@@ -391,3 +405,15 @@ PolygonCollider2D:
       - {x: 2.18, y: -0.16}
       - {x: 2.8, y: -0.21}
       - {x: 2.81, y: -0.14}
+--- !u!114 &136772466366428792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296866275731318096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071e66271aa354843a4ccd767dd5be6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

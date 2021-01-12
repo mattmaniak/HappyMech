@@ -5,14 +5,22 @@ namespace Pipes
 {
     [RequireComponent(typeof(BoxCollider2D))]
     [RequireComponent(typeof(SpriteRenderer))]
-    public class Section : MonoBehaviour
+    public class SectionTrigger : MonoBehaviour
     {
+        [SerializeField]
+        GameplayController gameplayController;
+
         [SerializeField]
         InfiniteGenerator generator;
 
         void OnBecameInvisible()
         {
             generator.MoveCurrentSection();
+        }
+
+        void OnTriggerEnter2D(Collider2D collider)
+        {
+            gameplayController.IncrementScoreNumber();
         }
     }
 }
