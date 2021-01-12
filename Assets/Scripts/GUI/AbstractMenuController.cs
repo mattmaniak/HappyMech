@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public abstract class MenuController : MonoBehaviour
+public abstract class AbstractMenuController : MonoBehaviour
 {
     public void PlayLevel()
     {
