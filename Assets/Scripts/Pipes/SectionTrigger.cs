@@ -18,7 +18,7 @@ namespace Pipes
             generator.MoveCurrentSection();
         }
 
-        void OnTriggerEnter2D(Collider2D collider)
+        void OnTriggerExit2D(Collider2D collider)
         {
             gameplayController.IncrementScoreNumber();
         }
