@@ -1,6 +1,6 @@
 namespace GUI
 {
-    public class GameOverMenuController : MenuController
+    public class GameOverMenuController : AbstractMenuController
     {
 
     }
