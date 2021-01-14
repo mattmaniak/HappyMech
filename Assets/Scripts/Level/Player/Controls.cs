@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Player
+namespace Level.Player
 {
     [RequireComponent(typeof(Movement))]
     [RequireComponent(typeof(Rigidbody2D))]

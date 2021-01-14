@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Pipes
+namespace Level.Pipes
 {
     [RequireComponent(typeof(PolygonCollider2D))]
     public class PipeCollisionHandler : MonoBehaviour

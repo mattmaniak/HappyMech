@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Pipes
+namespace Level.Pipes
 {
     [RequireComponent(typeof(BoxCollider2D))]
     [RequireComponent(typeof(SpriteRenderer))]

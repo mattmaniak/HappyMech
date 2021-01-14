@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace Pipes
+namespace Level.Pipes
 {
     public class InfiniteGenerator : MonoBehaviour
     {
