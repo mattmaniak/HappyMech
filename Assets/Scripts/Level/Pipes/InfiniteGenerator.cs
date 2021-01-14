@@ -30,6 +30,7 @@ namespace Level.Pipes
         Transform player;
 
         int currentSectionIndex;
+        int nextSectionIndex;
 
         float HorizontalOffset
         {
@@ -56,7 +57,7 @@ namespace Level.Pipes
             }
         }
 
-        int NextSectionIndex
+        int RandomSectionIndex
         {
             get
             {
@@ -67,14 +68,18 @@ namespace Level.Pipes
         void Awake()
         {
             SentAllToGraveyard();
-            MoveCurrentSection();
+            MoveCurrentSection(-1);
         }
 
-        public void MoveCurrentSection()
+        public void MoveCurrentSection(int index)
         {
-            SentAllToGraveyard();
-            currentSectionIndex = NextSectionIndex;
+            if (index == currentSectionIndex)
+            {
+                nextSectionIndex = currentSectionIndex;
+                currentSectionIndex = RandomSectionIndex;
+            }
             sections[currentSectionIndex].transform.position = new Vector3(HorizontalOffset, VerticalOffset, 0.0f);
+            sections[nextSectionIndex].transform.position = new Vector3((HorizontalOffset * 2.0f) - player.transform.position.x, VerticalOffset, 0.0f);
         }
 
         void SentAllToGraveyard()

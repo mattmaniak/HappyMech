@@ -13,9 +13,12 @@ namespace Level.Pipes
         [SerializeField]
         InfiniteGenerator generator;
 
+        [SerializeField]
+        int index;
+
         void OnBecameInvisible()
         {
-            generator.MoveCurrentSection();
+            generator.MoveCurrentSection(index);
         }
 
         void OnTriggerExit2D(Collider2D collider)
