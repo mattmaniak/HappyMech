@@ -23,6 +23,17 @@ namespace Level.Player
 
         void FixedUpdate()
         {
+            ClampVerticalSpeed();
+            MoveHorizontally();
+        }
+
+        internal void GainAltitude()
+        {
+            rigidbody.AddForce(Vector2.up * maxVerticalSpeed * 2.0f);
+        }
+
+        void ClampVerticalSpeed()
+        {
             if (rigidbody.velocity.y > maxVerticalSpeed)
             {
                 rigidbody.velocity = new Vector2(maxHorizontalSpeed, maxVerticalSpeed);
@@ -31,12 +42,6 @@ namespace Level.Player
             {
                 rigidbody.velocity = new Vector2(maxHorizontalSpeed, -maxVerticalSpeed);
             }
-            MoveHorizontally();
-        }
-
-        internal void GainAltitude()
-        {
-            rigidbody.AddForce(Vector2.up * maxVerticalSpeed * 2.0f);
         }
 
         void MoveHorizontally()
