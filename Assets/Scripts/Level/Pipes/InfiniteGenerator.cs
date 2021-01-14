@@ -36,8 +36,15 @@ namespace Level.Pipes
             get
             {
                 float separation = Random.Range(minHorizontalSeparation, maxHorizontalSeparation);
-                Assert.IsTrue(player.transform.position.x <= float.MaxValue - separation);
-                return Random.Range(minHorizontalSeparation, maxHorizontalSeparation) + player.transform.position.x;
+                if (player != null)
+                {
+                    Assert.IsTrue(player.transform.position.x <= float.MaxValue - separation);
+                    return Random.Range(minHorizontalSeparation, maxHorizontalSeparation) + player.transform.position.x;
+                }
+                else
+                {
+                    return 0.0f;
+                }
             }
         }
 
