@@ -475,7 +475,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6068489432563193049, guid: 4d956b7fdb3f8f84cbc17c117b36eb9f, type: 3}
       propertyPath: m_Text
-      value: Restart level
+      value: Restart level for 1$
       objectReference: {fileID: 0}
     - target: {fileID: 6068489432947748156, guid: 4d956b7fdb3f8f84cbc17c117b36eb9f, type: 3}
       propertyPath: m_Name
