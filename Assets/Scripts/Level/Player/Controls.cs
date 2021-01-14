@@ -38,17 +38,12 @@ namespace Level.Player
 
         void HandleTouchInput()
         {
-            if (Input.touchCount > 0)
+            foreach(Touch touch in Input.touches)
             {
-                switch (Input.GetTouch(0).phase)
+                if (touch.phase == TouchPhase.Stationary)
                 {
-                    case TouchPhase.Began:
-                        movement.GainAltitude();
-                        break;
-
-                    case TouchPhase.Ended:
-                    default:
-                        break;
+                    movement.GainAltitude();
+                    break;
                 }
             }
         }
