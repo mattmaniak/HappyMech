@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public abstract class AbstractMenuController : MonoBehaviour
+namespace GUI
 {
-    public void PlayLevel()
+    public abstract class AbstractMenuController : MonoBehaviour
     {
-        SceneManager.LoadSceneAsync("Level");
+        public virtual void PlayLevel()
+        {
+            SceneManager.LoadSceneAsync("Level");
+        }    
     }    
 }
