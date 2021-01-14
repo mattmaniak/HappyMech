@@ -5,7 +5,7 @@ namespace GUI
 {
     public abstract class AbstractMenuController : MonoBehaviour
     {
-        public void PlayLevel()
+        public virtual void PlayLevel()
         {
             SceneManager.LoadSceneAsync("Level");
         }    
