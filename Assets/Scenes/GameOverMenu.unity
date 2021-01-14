@@ -439,7 +439,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Restart level for
 --- !u!222 &574337521
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -597,7 +597,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 0
 --- !u!222 &781892848
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -777,7 +777,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6068489432563193049, guid: 4d956b7fdb3f8f84cbc17c117b36eb9f, type: 3}
       propertyPath: m_Text
-      value: Restart level for 1$
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6068489432563193055, guid: 4d956b7fdb3f8f84cbc17c117b36eb9f, type: 3}
       propertyPath: m_Name
@@ -886,7 +886,7 @@ PrefabInstance:
     - target: {fileID: 6068489432947748158, guid: 4d956b7fdb3f8f84cbc17c117b36eb9f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1345823868}
+      objectReference: {fileID: 1461800863}
     - target: {fileID: 6068489432947748158, guid: 4d956b7fdb3f8f84cbc17c117b36eb9f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -897,7 +897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6068489432947748158, guid: 4d956b7fdb3f8f84cbc17c117b36eb9f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GUI.AbstractMenuController, Assembly-CSharp
+      value: GUI.GameOverMenuController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6068489432947748158, guid: 4d956b7fdb3f8f84cbc17c117b36eb9f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -927,6 +927,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  productId: com.mattmaniak.happymech.levelrestart
+  buttonType: 0
+  consumePurchase: 1
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1345823868}
+        m_TargetAssemblyTypeName: Web.InAppPurchaseMockup, Assembly-CSharp
+        m_MethodName: OnPurchaseComplete
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1345823868}
+        m_TargetAssemblyTypeName: Web.InAppPurchaseMockup, Assembly-CSharp
+        m_MethodName: OnPurchaseFailrue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  titleText: {fileID: 574337520}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 781892847}
 --- !u!114 &1345823868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,7 +1159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   androidFakePurchaseText: {fileID: 1345823869}
-  iapFakePurchaseText: {fileID: 574337518}
+  iapFakePurchaseText: {fileID: 55398557}
 --- !u!1 &1877732759
 GameObject:
   m_ObjectHideFlags: 0
