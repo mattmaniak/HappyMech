@@ -6,7 +6,7 @@ namespace Pipes
     public class PipeCollisionHandler : MonoBehaviour
     {
         [SerializeField]
-        GameplayController gameplayController;
+        Gameplay.Controller gameplayController;
 
         void OnCollisionEnter2D(Collision2D collision)
         {
