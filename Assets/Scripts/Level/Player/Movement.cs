@@ -16,6 +16,8 @@ namespace Level.Player
 
         Rigidbody2D rigidbody;
 
+        internal bool IsGainingAltitude { get; set; } = false;
+
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();
@@ -23,13 +25,17 @@ namespace Level.Player
 
         void FixedUpdate()
         {
-            ClampVerticalSpeed();
+            if (IsGainingAltitude)
+            {
+                GainAltitude();
+            }
             MoveHorizontally();
+            ClampVerticalSpeed();
         }
 
-        internal void GainAltitude()
+        void GainAltitude()
         {
-            rigidbody.AddForce(Vector2.up * maxVerticalSpeed * 2.0f);
+            rigidbody.AddForce(Vector2.up * 2.0f * maxVerticalSpeed, ForceMode2D.Impulse);
         }
 
         void ClampVerticalSpeed()

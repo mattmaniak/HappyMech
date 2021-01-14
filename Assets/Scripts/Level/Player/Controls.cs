@@ -30,22 +30,41 @@ namespace Level.Player
 
         void HandleKeyboardInput()
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                movement.GainAltitude();
+                movement.IsGainingAltitude = true;
+            }
+            else if (Input.GetKeyUp(KeyCode.Space))
+            {
+                movement.IsGainingAltitude = false;  
             }
         }
 
         void HandleTouchInput()
         {
-            foreach(Touch touch in Input.touches)
+            if (Input.touchCount > 0)
             {
-                if (touch.phase == TouchPhase.Stationary)
+                switch (Input.GetTouch(0).phase)
                 {
-                    movement.GainAltitude();
-                    break;
+                    case TouchPhase.Began:
+                        movement.IsGainingAltitude = true;  
+                        break;
+
+                    case TouchPhase.Ended:
+                        movement.IsGainingAltitude = false;  
+                        break;
+
+                    default:
+                        break;
                 }
-            }
+            }            // foreach(Touch touch in Input.touches)
+            // {
+            //     if (touch.phase == TouchPhase.Stationary)
+            //     {
+            //         movement.IsGainingAltitude = true;                        
+            //         break;
+            //     }
+            // }
         }
     }
 }
