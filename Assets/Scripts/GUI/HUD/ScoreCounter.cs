@@ -7,6 +7,9 @@ namespace GUI.HUD
     [RequireComponent(typeof(Text))]
     public class ScoreCounter : MonoBehaviour
     {
+        [SerializeField]
+        Gameplay.DataContainer gameplayDataContainer;
+
         Text scoreContents;
 
         public void Awake()
@@ -14,14 +17,12 @@ namespace GUI.HUD
             scoreContents = GetComponent<Text>();
         }
 
-        public string ScoreContents
+        void Update()
         {
-            set
+            string currentScoreNumber = gameplayDataContainer.ScoreNumber.ToString();
+            if (scoreContents.text != currentScoreNumber)
             {
-                if (!String.IsNullOrEmpty(value))
-                {
-                    scoreContents.text = value;
-                }
+                scoreContents.text = currentScoreNumber;
             }
         }
     }

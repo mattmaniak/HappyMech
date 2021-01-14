@@ -8,7 +8,7 @@ namespace Pipes
     public class SectionTrigger : MonoBehaviour
     {
         [SerializeField]
-        GameplayController gameplayController;
+        Gameplay.Controller gameplayController;
 
         [SerializeField]
         InfiniteGenerator generator;
