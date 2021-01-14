@@ -7,11 +7,11 @@ namespace Level.Pipes
     {
         readonly Vector3 graveyardPosition = new Vector3(-100.0f, 0.0f, 0.0f);
 
-        [Range(0.0f, 10.0f)]
+        [Range(0.0f, 5.0f)]
         [SerializeField]
         float minHorizontalSeparation;
 
-        [Range(10.0f, 20.0f)]
+        [Range(5.0f, 10.0f)]
         [SerializeField]
         float maxHorizontalSeparation;
 
