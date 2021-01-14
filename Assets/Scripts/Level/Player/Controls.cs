@@ -4,26 +4,13 @@ using UnityEngine;
 namespace Level.Player
 {
     [RequireComponent(typeof(Movement))]
-    [RequireComponent(typeof(Rigidbody2D))]
     public class Controls : MonoBehaviour
     {
-        Rigidbody2D rigidbody;
+        Movement movement;
 
-        void Awake()
+        void Start()
         {
-            rigidbody = GetComponent<Rigidbody2D>();
-        }
-
-        void FixedUpdate()
-        {
-            if (rigidbody.velocity.y > Movement.maxVelocity)
-            {
-                rigidbody.velocity = new Vector2(0.0f, Movement.maxVelocity);
-            }
-            else if (rigidbody.velocity.y < -Movement.maxVelocity)
-            {
-                rigidbody.velocity = new Vector2(0.0f, -Movement.maxVelocity);
-            }
+            movement = GetComponent<Movement>();
         }
 
         /// <remarks>
@@ -41,16 +28,11 @@ namespace Level.Player
 #endif
         }
 
-        void GainAltitude()
-        {
-            rigidbody.AddForce(Vector2.up * Movement.maxVelocity * 2.0f);
-        }
-
         void HandleKeyboardInput()
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                GainAltitude();
+                movement.GainAltitude();
             }
         }
 
@@ -61,7 +43,7 @@ namespace Level.Player
                 switch (Input.GetTouch(0).phase)
                 {
                     case TouchPhase.Began:
-                        GainAltitude();
+                        movement.GainAltitude();
                         break;
 
                     case TouchPhase.Ended:

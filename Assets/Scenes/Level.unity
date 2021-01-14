@@ -730,6 +730,14 @@ PrefabInstance:
       propertyPath: horizontalSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2748334976763416335, guid: ccd1f8b790786d448b369a37f15ada8a, type: 3}
+      propertyPath: maxVerticalSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748334976763416335, guid: ccd1f8b790786d448b369a37f15ada8a, type: 3}
+      propertyPath: maxHorizontalSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3746609343358416072, guid: ccd1f8b790786d448b369a37f15ada8a, type: 3}
       propertyPath: m_Name
       value: Player
