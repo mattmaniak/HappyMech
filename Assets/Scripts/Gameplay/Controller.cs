@@ -6,6 +6,8 @@ namespace Gameplay
 {
     public class Controller : MonoBehaviour
     {
+        const string gameOverMenuName = "GameOverMenu";
+
         [SerializeField]
         DataContainer data;
 
@@ -24,7 +26,7 @@ namespace Gameplay
 
         public void GameOver()
         {
-            SceneManager.LoadSceneAsync("GameOverMenu");
+            SceneManager.LoadSceneAsync(gameOverMenuName);
         }
     }
 }
