@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Level.Pipes
 {
-    [RequireComponent(typeof(PolygonCollider2D))]
     public class PipeCollisionHandler : MonoBehaviour
     {
         [SerializeField]

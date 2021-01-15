@@ -3,8 +3,6 @@ using UnityEngine;
 
 namespace Level.Pipes
 {
-    [RequireComponent(typeof(BoxCollider2D))]
-    [RequireComponent(typeof(SpriteRenderer))]
     public class SectionTrigger : MonoBehaviour
     {
         [SerializeField]
