@@ -5,7 +5,7 @@ namespace Level.Pipes
 {
     public class InfiniteGenerator : MonoBehaviour
     {
-        readonly Vector3 graveyardPosition = new Vector3(-100.0f, 0.0f, 0.0f);
+        readonly Vector2 graveyardPosition = new Vector2(-100.0f, 0.0f);
 
         [Range(0.0f, 5.0f)]
         [SerializeField]
@@ -29,23 +29,28 @@ namespace Level.Pipes
         [SerializeField]
         Transform player;
 
-        int currentSectionIndex;
-        int nextSectionIndex;
-
         float HorizontalOffset
         {
             get
             {
-                float separation = Random.Range(minHorizontalSeparation, maxHorizontalSeparation);
-                if (player != null)
+                return Random.Range(minHorizontalSeparation, maxHorizontalSeparation);
+            }
+        }
+
+        float LastPipeSectionX
+        {
+            get
+            {
+                float lastX = 0;
+                float sectionX = 0;
+
+                foreach (var section in sections)
                 {
-                    Assert.IsTrue(player.transform.position.x <= float.MaxValue - separation);
-                    return Random.Range(minHorizontalSeparation, maxHorizontalSeparation) + player.transform.position.x;
+                    sectionX = section.transform.position.x;
+                    lastX = (sectionX > lastX) ? sectionX : lastX;
                 }
-                else
-                {
-                    return 0.0f;
-                }
+                Assert.IsTrue(lastX <= float.MaxValue);
+                return lastX;
             }
         }
 
@@ -57,43 +62,25 @@ namespace Level.Pipes
             }
         }
 
-        int RandomSectionIndex
-        {
-            get
-            {
-                return Random.Range(Random.Range(0, currentSectionIndex), Random.Range(currentSectionIndex + 1, sections.Length + 1));
-            }
-        }
-
         void Awake()
         {
-            SentAllToGraveyard();
-            MoveCurrentSection(-1);
+            InitializeSections();
         }
 
-        public void MoveCurrentSection(int index)
+        public void MoveInvisibleSectionFurther(int index)
         {
-            if (index == currentSectionIndex)
-            {
-                nextSectionIndex = currentSectionIndex;
-                currentSectionIndex = RandomSectionIndex;
-            }
-            sections[currentSectionIndex].transform.position = new Vector3(HorizontalOffset, VerticalOffset, 0.0f);
-            sections[nextSectionIndex].transform.position = new Vector3((HorizontalOffset * 2.0f) - player.transform.position.x, VerticalOffset, 0.0f);
+            sections[index].transform.position = new Vector2(LastPipeSectionX + HorizontalOffset, VerticalOffset);
         }
 
-        void SentAllToGraveyard()
+        void InitializeSections()
         {
-            foreach (var section in sections)
+            sections[0].SetActive(true);
+            sections[0].transform.position = new Vector2(HorizontalOffset, VerticalOffset);
+
+            for (int x = 1; x < sections.Length; x++)
             {
-                if (!section.activeInHierarchy)
-                {
-                    section.SetActive(true);
-                }
-                else if (!section.GetComponent<SpriteRenderer>().isVisible)
-                {
-                    section.transform.position = graveyardPosition;
-                }
+                sections[x].SetActive(true);
+                sections[x].transform.position = new Vector2(LastPipeSectionX + HorizontalOffset, VerticalOffset);
             }
         }
     }
