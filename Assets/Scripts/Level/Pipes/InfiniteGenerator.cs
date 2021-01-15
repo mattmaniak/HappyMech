@@ -64,30 +64,23 @@ namespace Level.Pipes
 
         void Awake()
         {
-            SentAllToGraveyard();
-            for (int x = 0; x < sections.Length; x++)
-            {
-                sections[x].transform.position = new Vector2(player.transform.position.x + (HorizontalOffset * (x + 1)), VerticalOffset);
-            }
+            InitializeSections();
         }
 
-        public void MoveCurrentSection(int index)
+        public void MoveInvisibleSectionFurther(int index)
         {
             sections[index].transform.position = new Vector2(LastPipeSectionX + HorizontalOffset, VerticalOffset);
         }
 
-        void SentAllToGraveyard()
+        void InitializeSections()
         {
-            foreach (var section in sections)
+            sections[0].SetActive(true);
+            sections[0].transform.position = new Vector2(HorizontalOffset, VerticalOffset);
+
+            for (int x = 1; x < sections.Length; x++)
             {
-                if (!section.activeInHierarchy)
-                {
-                    section.SetActive(true);
-                }
-                else if (!section.GetComponent<SpriteRenderer>().isVisible)
-                {
-                    section.transform.position = graveyardPosition;
-                }
+                sections[x].SetActive(true);
+                sections[x].transform.position = new Vector2(LastPipeSectionX + HorizontalOffset, VerticalOffset);
             }
         }
     }

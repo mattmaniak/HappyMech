@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48cd9000e8503b14a9dc3f29323aba3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minHorizontalSeparation: 4
-  maxHorizontalSeparation: 10
+  minHorizontalSeparation: 5
+  maxHorizontalSeparation: 7.5
   minVerticalOffset: -3
   maxVerticalOffset: 3
   sections:

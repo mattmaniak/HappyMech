@@ -18,7 +18,7 @@ namespace Level.Pipes
 
         void OnBecameInvisible()
         {
-            generator.MoveCurrentSection(index);
+            generator.MoveInvisibleSectionFurther(index);
         }
 
         void OnTriggerExit2D(Collider2D collider)
